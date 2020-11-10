@@ -1,0 +1,12 @@
+{
+  "name": "ReadAndBill",
+  "displayName": "ReadAndBill",
+  "expo": {
+    "name": "ReadAndBill",
+    "slug": "ReadAndBill",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
