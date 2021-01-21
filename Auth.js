@@ -3,7 +3,9 @@ import React, { Component, Fragment } from 'react';
 import { SafeAreaView, ScrollView, Button, StyleSheet, Text, View } from 'react-native';
 import { createConfig, signIn, signOut, isAuthenticated, getUser, getUserFromIdToken, EventEmitter } from '@okta/okta-react-native';
 import configFile from './auth.config';
-
+import  LoginPage from "./App/Component/Login";
+import HomePage from "./App/Component/Home";
+import Route from './App/Route';
 export default class Auth extends Component {
   constructor() {
     super();
@@ -111,38 +113,35 @@ export default class Auth extends Component {
 
   render() {
     return (
-      <Fragment>
-        <SafeAreaView style={styles.container}>
-          <View style={styles.buttonContainer}>
-            <View style={styles.button}>
-              {this.state.authenticated ? (
-                <Button
-                  style={styles.button}
-                  testID="logoutButton"
-                  onPress={async () => { this.logout() }}
-                  title="Logout"
-                />
-              ) : (
-                <Button
-                  style={styles.button}
-                  testID="loginButton"
-                  onPress={async () => { this.login() }}
-                  title="Login"
-                />
-              )}
-            </View>
-          </View>
-          {this.renderButtons()}
+      <>
+        {this.state.authenticated ? (
+          <Route/>
+        ) : (
+          <LoginPage login = {async () => {this.login()}}/>
+        )}
+      </>
+    );
+  }
+}
+
+{/* <View>
+<Button
+  style={styles.button}
+  testID="logoutButton"
+  onPress={async () => { this.logout() }}
+  title="Logout"
+/>
+</View> */}
+
+
+          {/* {this.renderButtons()}
           <ScrollView
             contentInsetAdjustmentBehavior="automatic"
             style={styles.context}>
             <Text>{this.state.context}</Text>
           </ScrollView>
         </SafeAreaView>
-      </Fragment>
-    );
-  }
-}
+      </Fragment> */}
 
 const styles = StyleSheet.create({
   buttonContainer: {

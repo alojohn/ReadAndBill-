@@ -7,12 +7,13 @@
  */
 
 import React, {Fragment} from 'react';
-import  Route  from "./App/Route";
+// import  Route  from "./App/Route";
+import  Auth  from "./Auth";
 
 
 const App = () => {
   return (<>
-    <Route/>
+      <Auth/>
   </>
   );
 };
